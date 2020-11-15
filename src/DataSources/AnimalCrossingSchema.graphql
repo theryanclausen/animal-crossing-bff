@@ -1,0 +1,12 @@
+type Bug {
+  fileName: String
+  name: String
+  northernMonths: [Int]
+  southernMonths: [Int]
+  timeArray: [Int]
+  price: String
+  priceFlick: String
+  catchPhrase: String
+  image: String
+  icon: String
+}

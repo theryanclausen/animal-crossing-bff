@@ -1,0 +1,49 @@
+{
+  "name": "animal-crossing-bff",
+  "version": "1.0.0",
+  "description": "Animal Crossing BFF for calendar app.",
+  "main": "dist/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theryanclausen/animal-crossing-bff.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theryanclausen/animal-crossing-bff/issues"
+  },
+  "homepage": "https://github.com/theryanclausen/animal-crossing-bff#readme",
+  "scripts": {
+    "watch-node": "nodemon -r dotenv/config dist/server.js",
+    "dev": "concurrently -k -p \"{name}\" \"yarn watch-ts\" \"yarn watch-node\"",
+    "watch-ts": "tsc -w",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "generate": "graphql-codegen"
+  },
+  "dependencies": {
+    "apollo-datasource-rest": "^0.9.0",
+    "apollo-server-express": "^2.14.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "graphql-import": "^1.0.2",
+    "graphql-tools": "^5.0.0",
+    "qs": "^6.9.4",
+    "typescript": "^3.9.2"
+  },
+  "devDependencies": {
+    "@types/he": "^1.1.1",
+    "@graphql-codegen/add": "^1.13.5",
+    "@graphql-codegen/cli": "^1.13.5",
+    "@graphql-codegen/typescript": "^1.13.5",
+    "@graphql-codegen/typescript-resolvers": "^1.13.5",
+    "@types/express": "^4.17.6",
+    "@types/express-validator": "^3.0.0",
+    "@types/node": "^14.0.1",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.1"
+  }
+}

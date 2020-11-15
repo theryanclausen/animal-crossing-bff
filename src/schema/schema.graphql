@@ -1,0 +1,5 @@
+#import * from '../DataSources/AnimalCrossingSchema.graphql'
+
+type Query {
+    bugs(month: Int, isSouthern: Boolean): [Bug]
+}
