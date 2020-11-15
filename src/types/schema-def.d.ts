@@ -60,6 +60,26 @@ export type SeaCreature = {
   timeArray?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
+export type Villager = {
+  __typename?: 'Villager';
+  birthday?: Maybe<Scalars['String']>;
+  birthdayString?: Maybe<Scalars['String']>;
+  bubbleColor?: Maybe<Scalars['String']>;
+  catchPhrase?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  gender?: Maybe<Scalars['String']>;
+  hobby?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  image?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  personality?: Maybe<Scalars['String']>;
+  saying?: Maybe<Scalars['String']>;
+  species?: Maybe<Scalars['String']>;
+  subtype?: Maybe<Scalars['String']>;
+  textColor?: Maybe<Scalars['String']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   seaCreature?: Maybe<SeaCreature>;
@@ -68,11 +88,13 @@ export type Query = {
   bugs?: Maybe<Array<Maybe<Bug>>>;
   fish?: Maybe<Fish>;
   fishes?: Maybe<Array<Maybe<Fish>>>;
+  villager?: Maybe<Villager>;
+  villagers?: Maybe<Array<Maybe<Villager>>>;
 };
 
 
 export type QuerySeaCreatureArgs = {
-  id?: Maybe<Scalars['Int']>;
+  id: Scalars['Int'];
 };
 
 
@@ -83,7 +105,7 @@ export type QuerySeaCreaturesArgs = {
 
 
 export type QueryBugArgs = {
-  id?: Maybe<Scalars['Int']>;
+  id: Scalars['Int'];
 };
 
 
@@ -94,13 +116,24 @@ export type QueryBugsArgs = {
 
 
 export type QueryFishArgs = {
-  id?: Maybe<Scalars['Int']>;
+  id: Scalars['Int'];
 };
 
 
 export type QueryFishesArgs = {
   month?: Maybe<Scalars['Int']>;
   isSouthern?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type QueryVillagerArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type QueryVillagersArgs = {
+  month?: Maybe<Scalars['Int']>;
+  ids?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
 
@@ -186,6 +219,7 @@ export type ResolversTypes = {
   Int: ResolverTypeWrapper<Scalars['Int']>;
   Fish: ResolverTypeWrapper<Fish>;
   SeaCreature: ResolverTypeWrapper<SeaCreature>;
+  Villager: ResolverTypeWrapper<Villager>;
   Query: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
@@ -197,6 +231,7 @@ export type ResolversParentTypes = {
   Int: Scalars['Int'];
   Fish: Fish;
   SeaCreature: SeaCreature;
+  Villager: Villager;
   Query: {};
   Boolean: Scalars['Boolean'];
 };
@@ -250,19 +285,42 @@ export type SeaCreatureResolvers<ContextType = any, ParentType extends Resolvers
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type VillagerResolvers<ContextType = any, ParentType extends ResolversParentTypes['Villager'] = ResolversParentTypes['Villager']> = {
+  birthday?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  birthdayString?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  bubbleColor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  catchPhrase?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  fileName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  gender?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  hobby?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  icon?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  personality?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  saying?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  species?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  subtype?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  textColor?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  seaCreature?: Resolver<Maybe<ResolversTypes['SeaCreature']>, ParentType, ContextType, RequireFields<QuerySeaCreatureArgs, never>>;
+  seaCreature?: Resolver<Maybe<ResolversTypes['SeaCreature']>, ParentType, ContextType, RequireFields<QuerySeaCreatureArgs, 'id'>>;
   seaCreatures?: Resolver<Maybe<Array<Maybe<ResolversTypes['SeaCreature']>>>, ParentType, ContextType, RequireFields<QuerySeaCreaturesArgs, never>>;
-  bug?: Resolver<Maybe<ResolversTypes['Bug']>, ParentType, ContextType, RequireFields<QueryBugArgs, never>>;
+  bug?: Resolver<Maybe<ResolversTypes['Bug']>, ParentType, ContextType, RequireFields<QueryBugArgs, 'id'>>;
   bugs?: Resolver<Maybe<Array<Maybe<ResolversTypes['Bug']>>>, ParentType, ContextType, RequireFields<QueryBugsArgs, never>>;
-  fish?: Resolver<Maybe<ResolversTypes['Fish']>, ParentType, ContextType, RequireFields<QueryFishArgs, never>>;
+  fish?: Resolver<Maybe<ResolversTypes['Fish']>, ParentType, ContextType, RequireFields<QueryFishArgs, 'id'>>;
   fishes?: Resolver<Maybe<Array<Maybe<ResolversTypes['Fish']>>>, ParentType, ContextType, RequireFields<QueryFishesArgs, never>>;
+  villager?: Resolver<Maybe<ResolversTypes['Villager']>, ParentType, ContextType, RequireFields<QueryVillagerArgs, 'id'>>;
+  villagers?: Resolver<Maybe<Array<Maybe<ResolversTypes['Villager']>>>, ParentType, ContextType, RequireFields<QueryVillagersArgs, never>>;
 };
 
 export type Resolvers<ContextType = any> = {
   Bug?: BugResolvers<ContextType>;
   Fish?: FishResolvers<ContextType>;
   SeaCreature?: SeaCreatureResolvers<ContextType>;
+  Villager?: VillagerResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 

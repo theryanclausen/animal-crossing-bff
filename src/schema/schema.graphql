@@ -1,12 +1,12 @@
 #import * from '../DataSources/AnimalCrossingSchema.graphql'
 
 type Query {
-  seaCreature(id: Int): SeaCreature
+  seaCreature(id: Int!): SeaCreature
   seaCreatures(month: Int, isSouthern: Boolean): [SeaCreature]
-  bug(id: Int): Bug
+  bug(id: Int!): Bug
   bugs(month: Int, isSouthern: Boolean): [Bug]
-  fish(id: Int): Fish
+  fish(id: Int!): Fish
   fishes(month: Int, isSouthern: Boolean): [Fish]
-  seaCreature(id: Int): SeaCreature
-  seaCreatures(month: Int, isSouthern: Boolean): [SeaCreatures]
+  villager(id: Int!): Villager
+  villagers(month: Int ids:[Int]): [Villager]
 }

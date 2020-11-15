@@ -5,14 +5,44 @@ import {
   QueryFishArgs,
   QueryFishesArgs,
   QuerySeaCreatureArgs,
-  QuerySeaCreaturesArgs
+  QuerySeaCreaturesArgs,
+  QueryVillagerArgs,
+  QueryVillagersArgs,
 } from "../types/schema-def";
-import { BugApi, FishApi, SeaCreatureApi } from "./apiTypes";
+import { BugApi, FishApi, SeaCreatureApi, VillagerApi } from "./apiTypes";
 
 class AnimalCrossingAPI extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = "http://acnhapi.com/v1/";
+  }
+
+  getVillager({ id }: QueryVillagerArgs): Promise<VillagerApi> {
+    return this.get(`villagers/${id}`);
+  }
+
+  async getVillagers({
+    month = null,
+    ids = [],
+  }: QueryVillagersArgs): Promise<VillagerApi[]> {
+    try {
+      const result: { [name: string]: VillagerApi } = await this.get(
+        "villagers"
+      );
+      return month || ids.length
+        ? Object.values(result).filter(({ id, birthday }) => {
+            if (ids.length && !ids.includes(id)) {
+              return false;
+            }
+            if (month && month !== parseInt(birthday.split("/")[1])) {
+              return false;
+            }
+            return true;
+          })
+        : Object.values(result);
+    } catch (e) {
+      return e;
+    }
   }
 
   getFish({ id }: QueryFishArgs): Promise<FishApi> {

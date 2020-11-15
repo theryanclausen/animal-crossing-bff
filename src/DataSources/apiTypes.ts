@@ -50,3 +50,22 @@ export interface SeaCreatureApi {
   image_uri: string;
   icon_uri: string;
 }
+
+export interface VillagerApi {
+    id: number;
+    "file-name": string;
+    name: NamesApi;
+    "personality": string;
+    "birthday-string": string;
+    "birthday": string;
+    "species": string;
+    "gender": string;
+    "subtype": string;
+    "hobby": string;
+    "catch-phrase": string;
+    "icon_uri": string;
+    "image_uri": string;
+    "bubble-color": string;
+    "text-color": string;
+    "saying": string;
+}

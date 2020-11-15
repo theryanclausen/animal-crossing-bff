@@ -43,3 +43,22 @@ type SeaCreature {
   image: String
   icon: String
 }
+
+type Villager {
+  id: Int
+  fileName: String
+  name: String
+  personality: String
+  birthdayString: String
+  birthday: String
+  species: String
+  gender: String
+  subtype: String
+  hobby: String
+  catchPhrase: String
+  icon: String
+  image: String
+  bubbleColor: String
+  textColor: String
+  saying: String
+}
