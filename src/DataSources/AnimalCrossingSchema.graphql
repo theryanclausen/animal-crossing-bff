@@ -1,4 +1,5 @@
 type Bug {
+  id: Int
   fileName: String
   name: String
   northernMonths: [Int]
@@ -7,6 +8,38 @@ type Bug {
   price: String
   priceFlick: String
   catchPhrase: String
+  museumPhrase: String
+  image: String
+  icon: String
+}
+
+type Fish {
+  id: Int
+  fileName: String
+  name: String
+  northernMonths: [Int]
+  southernMonths: [Int]
+  timeArray: [Int]
+  price: String
+  priceCJ: String
+  shadow: String
+  catchPhrase: String
+  museumPhrase: String
+  image: String
+  icon: String
+}
+
+type SeaCreature {
+  id: Int
+  fileName: String
+  name: String
+  northernMonths: [Int]
+  southernMonths: [Int]
+  timeArray: [Int]
+  price: String
+  speed: String
+  catchPhrase: String
+  museumPhrase: String
   image: String
   icon: String
 }
